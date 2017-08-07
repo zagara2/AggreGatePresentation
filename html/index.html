@@ -35,6 +35,25 @@
 
         });
     });
+
+
+    //make one for the register button too!
+
+
+    $(document).ready(function() {
+        var email, pass;
+        $("#register-submit").click(function() {
+            email = $("#email").val();
+            pass = $("#password").val();
+
+            if (!email.indexOf("@") > -1 && !email.indexOf(".") > -1 && !pass.length > 3) {
+
+                alert("Not a valid email and/or password.");
+            }
+
+
+        });
+    }); 
     </script>
 
 
@@ -225,13 +244,13 @@ img:hover {
     <div class="polaroids">
         <div class="polaroid ">
             <img src="http://lorempixel.com/200/200/nature/1">
-            <p class="eventName">#RussiaGate
-                <br><a class="eventDesc">more Text ...</a></p>
+            <p class="eventName">Welcome to AggrGate!
+                <br><a class="eventDesc">The shareable news aggregator.</a></p>
         </div>
         <div class="polaroid">
             <img src="http://lorempixel.com/200/200/nature/2">
-            <p class="eventName">#CNNBlackmail
-                <br><a class="eventDesc">more Text ...</a></p>
+            <p class="eventName">Get the story...
+                <br><a class="eventDesc">Compile relevant media for any news event. </a></p>
         </div>
         <div class="login">
             <div id="login-form" class="loginForm"  style="display: block;">
@@ -279,18 +298,18 @@ img:hover {
         <br>
         <div class="polaroid">
             <img src="http://lorempixel.com/200/200/nature/3">
-            <p class="eventName">#GamerGate
-                <br><a class="eventDesc">more Text ...</a></p>
+            <p class="eventName"> Combat clickbait...
+                <br><a class="eventDesc">Compare and contrast myriad sources.</a></p>
         </div>
         <div class="polaroid">
             <img src="http://lorempixel.com/200/200/nature/4">
-            <p class="eventName">#PizzaGate
-                <br><a class="eventDesc">more Text ...</a></p>
+            <p class="eventName">No limits.
+                <br><a class="eventDesc">Amass stories from any site of your choosing.</a></p>
         </div>
         <div class="polaroid">
             <img src="http://lorempixel.com/200/200/nature/4">
-            <p class="eventName">#Healthcare
-                <br><a class="eventDesc">more Text ...</a></p>
+            <p class="eventName">Tell the world!
+                <br><a class="eventDesc">Link boards externally to educate friends.</a></p>
         </div>
     </div>
 

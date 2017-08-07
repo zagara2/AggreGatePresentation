@@ -66,11 +66,35 @@ app.post("/submit", function(req, res) {
     user.save(function(error, doc) { //doc is the data to be saved
         // Send any errors to the browser
         if (error) {
+            console.log(error);
+            if (error.message.includes("password")) { 
+            res.write("<h1>Password must be longer than 3 characters.</h1>");
+            res.end('<a href="/">Try Again</a>');
+        }
+
+        else if (error.message.includes("duplicate")) {
+            res.write("<h1>The email you attempted to register is already in use. </h1>");
+            res.end('<a href="/">Try Again</a>');
+        }
+
+        else { 
             res.send(error);
         }
+
+
+            
+        
+        }
+            
         // Otherwise, send the new doc to the browser
         else {
-            res.send(doc);
+            //res.send(doc);
+            console.log("registered");
+            sess = req.session;
+            sess.email = req.body.email;
+            res.redirect('/admin');
+
+
         }
     });
 });
