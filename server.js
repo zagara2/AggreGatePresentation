@@ -124,14 +124,13 @@ app.get("/users", function(req, res) {
 //     //Session set when user Request our app via URL
 //     if (sess.email) {
 
-//          * This line check Session existence.
-//          * If it existed will do some action.
+         
 
 //          console.log("session found. path is /");
 //         res.redirect('/admin');
 //     } else {
 //     	console.log("session not found. path is /");
-//         res.sendFile(__dirname + './public/index.html');
+//         res.sendFile(__dirname + '/html/index.html');
 //     }
 // });
 
