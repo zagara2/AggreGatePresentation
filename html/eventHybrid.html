@@ -38,6 +38,7 @@ body {
 .shareLink,
 .eventTitle {
     font-family: "Reenie Beanie", arial, sans-serif;
+    font-weight:bold;
 }
 
 .panel {
@@ -62,6 +63,7 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: #990000;
+    font-weight:bold;
 }
 
 .vidTitle {
@@ -95,11 +97,11 @@ blockquote {
 .modalButton {
     display: block;
     margin: auto;
-    margin-top: 18%;
+    margin-top: 16%;
     background-color: #990000;
     color: white;
     border-color: #990000;
-    font-size:22px;
+    font-size:24px;
 }
 
 #newDataItemForm p {
@@ -109,6 +111,7 @@ blockquote {
 .sectionTitle {
     font-size: 40px;
     padding:20px;
+    font-weight:bold;
 }
 
 .tweetComp{
@@ -121,6 +124,15 @@ blockquote {
     width:200px;
     word-wrap: break-word;
 }
+
+.placeholderWords {
+    font-size:25px;
+    padding:2px;
+    text-align:center;
+    /*font-weight:bold;*/
+}
+
+
 
 ::-webkit-scrollbar {
     display: none;
@@ -140,7 +152,7 @@ blockquote {
                 <div class="col-lg-12 null">NULL</div>
             </div>
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-info btn-lg modalButton" data-toggle="modal" data-target="#myModal">Add Link</button>
+            <button type="button" class="btn btn-info btn-lg modalButton" data-toggle="modal" data-target="#myModal">Add a New Link</button>
             <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
@@ -398,12 +410,16 @@ $(document).ready(function() {
 
             $(".tweetComp").empty();
             $(".tweetComp").append("<div class = 'placeholderstufftwitter'> <img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400' height = 'auto' alt = 'twitter placeholder'><br><img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400'  alt = 'twitter placeholder'> <br><img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400'  alt = 'twitter placeholder'> <br><img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400'  alt = 'twitter placeholder'><br><img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400' height = 'auto' alt = 'twitter placeholder'><br> </div>");
+            $(".tweetComp").prepend("<div class = 'placeholderWords'><p>Nothing yet!</p>")
             $(".podComp").empty();
             $(".podComp").append("<div class = 'placeholderstuffpodcast'> <img src = 'https://d3ahqwdvfhobke.cloudfront.net/static/img/placeholders/soundcloud-placeholder-525x262.jpg' width='230%' height = '250' alt = 'podcast placeholder' </div>");
+            $(".podComp").prepend("<div class = 'placeholderWords'><p>Nothing yet!</p>")
             $(".videoComp").empty();
             $(".videoComp").append("<div class = 'placeholderstuffvideo'> <img src = 'https://i.vimeocdn.com/video/499134794_1280x720.jpg' width='560' height='315' alt = 'video placeholder' </div>");
+            $(".videoComp").prepend("<div class = 'placeholderWords'><p>Nothing yet!</p>")
             $(".articleComp1").empty();
             $(".articleComp1").append("<div class = 'placeholderstuffarticle'> <img src = 'http://crd.org.eg/wp-content/uploads/2016/02/ph-news.png' width = '100%' height = '320' alt = 'article placeholder' </div>");
+            $(".articleComp").prepend("<div class = 'placeholderWords'><p>Nothing yet!</p>")
 
 
         if (links !== 'undefined') {
@@ -445,6 +461,7 @@ $(document).ready(function() {
 
                 if (myUrl.includes("twitter.com")) {
                     $('.placeholderstufftwitter').hide();
+                    $('.placeholderWords').hide();
                     // newLink.append("<blockquote class='twitter-tweet' data-lang='en'> <p lang='en' dir='ltr'>");
                     // newLink.append(textnode + "</p>");
                     // newLink.append("</blockquote>");
@@ -456,7 +473,8 @@ $(document).ready(function() {
                     $(".tweetComp").prepend(newLink);
 
                 } else if (myUrl.includes("soundcloud.com")) {
-                    // $('.placeholderstuffpodcast').hide();
+                    $('.placeholderstuffpodcast').hide();
+                    $('.placeholderWords').hide();
                     // newLink.append(textnode);
                     // <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/191477804&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
                     myUrl2 = "<iframe width='230%' " + myUrl.slice(20);
@@ -467,6 +485,7 @@ $(document).ready(function() {
                     $(".podComp").prepend(newLink);
                 } else if (myUrl.includes("youtube.com") || myUrl.includes("vid.me")) {
                     $('.placeholderstuffvideo').hide();
+                    $('.placeholderWords').hide();
                     // <h2><div class="vidTitle">Your Video Here:</div> </h2>
                     newLink.append("<h2><div class='vidTitle'>" + linkObject.title + "</div> </h2>")
                     newLink.append(myUrl);
@@ -477,6 +496,7 @@ $(document).ready(function() {
                     $(".videoComp").prepend(newLink);
                 } else {
                     $('.placeholderstuffarticle').hide();
+                    $('.placeholderWords').hide();
                     // <div class="article">
                     //                                     <h2>
                     //                                 <div class="articleTitle"><a style="color:#990000" href="http://www.newyorker.com/news/john-cassidy/trumps-health-care-threats-are-nothing-but-spite-and-fury" target=" ">Trumps Health Care Threats Are Nothing But Spite And Fury</a>
