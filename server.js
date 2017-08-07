@@ -376,10 +376,10 @@ app.get("/eventPage/:id", function(req, res) {
 //display json of the given board object
 app.get("/eventPage/api/:id", function(req, res) {
 
-    sess = req.session;
-    console.log(req.params.id);
+    // sess = req.session;
+    // console.log(req.params.id);
 
-    if (sess.email) {
+    // if (sess.email) {
 
         Board.find({ _id: req.params.id })
             .exec(function(err, doc) {
@@ -394,10 +394,10 @@ app.get("/eventPage/api/:id", function(req, res) {
 
 
 
-    } else {
-        res.write('<h1>Please login first.</h1>');
-        res.end('<a href="/">Login</a>');
-    }
+    // } else {
+    //     res.write('<h1>Please login first.</h1>');
+    //     res.end('<a href="/">Login</a>');
+    // }
 });
 
 //display all links on a given board
@@ -480,11 +480,11 @@ app.post("/submitLink", function(req, res) {
 
 app.get("/eventPage/:id/myLinks", function(req, res) {
 
-    sess = req.session;
+    // sess = req.session;
 
-    if (sess.email) {
+    // if (sess.email) {
 
-        Link.find({ $and: [{ addedBy: sess.email }, { boardID: req.params.id }] })
+        Link.find({ boardID: req.params.id })
             .exec(function(err, doc) {
 
                 if (err) {
@@ -495,10 +495,10 @@ app.get("/eventPage/:id/myLinks", function(req, res) {
             });
 
 
-    } else {
-        res.write('<h1>Please login first.</h1>');
-        res.end('<a href="/">Login</a>');
-    }
+    // } else {
+    //     res.write('<h1>Please login first.</h1>');
+    //     res.end('<a href="/">Login</a>');
+    // }
 });
 
 //delete a link
@@ -527,6 +527,16 @@ app.delete("/link/:linkID", function(req, res) { //pass the linkID as a data att
     }
 });
 
+
+//get the shareable version of an event page
+app.get("/eventPage/share/:id", function(req, res) {
+
+
+    res.sendFile(__dirname + "/html/shareableEvent.html");
+
+
+    
+});
 
 
 
