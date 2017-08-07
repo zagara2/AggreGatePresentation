@@ -49,6 +49,7 @@ body {
     font-family: "Indie Flower", arial, sans-serif;
     text-transform: uppercase;
     color: #990000;
+    font-size:20px;
 }
 
 .articleDesc {
@@ -77,7 +78,11 @@ body {
     font-size: 1.6em;
 }
 
-.articleComp,
+.articleComp1 {
+    height:400px;
+}
+
+.articleComp1, .articleComp,
 .tweetComp {
     overflow-y: scroll;
 }
@@ -90,10 +95,11 @@ blockquote {
 .modalButton {
     display: block;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 18%;
     background-color: #990000;
     color: white;
     border-color: #990000;
+    font-size:22px;
 }
 
 #newDataItemForm p {
@@ -103,6 +109,10 @@ blockquote {
 .sectionTitle {
     font-size: 40px;
     padding:20px;
+}
+
+.tweetComp{
+    width:200;
 }
 
 ::-webkit-scrollbar {
@@ -136,9 +146,9 @@ blockquote {
                         <div class="modal-body">
                             <div id="newDataItemForm">
                                 <form action="/linkSubmit" method="post">
-                                    <p>Title, or Tweet content:</p>
+                                    <p>Title:</p>
                                     <input type="text" id="title" placeholder="">
-                                    <p>URL (please use embed link for videos, Tweets, or podcasts):</p>
+                                    <p>URL <strong>(must use embed link for videos, Tweets, or podcasts):</strong></p>
                                     <input type="url" id="url" placeholder="">
                                     <!-- <p>Link Source: Twitter, Youtube, Soundcloud, or Other?:</p>
                                     <input type="text" id="linkType" placeholder=""> -->
@@ -428,9 +438,10 @@ $(document).ready(function() {
 
                 if (myUrl.includes("twitter.com")) {
                     $('.placeholderstufftwitter').hide();
-                    newLink.append("<blockquote class='twitter-tweet' data-lang='en'> <p lang='en' dir='ltr'>");
-                    newLink.append(textnode + "</p>");
-                    newLink.append("</blockquote>");
+                    // newLink.append("<blockquote class='twitter-tweet' data-lang='en'> <p lang='en' dir='ltr'>");
+                    // newLink.append(textnode + "</p>");
+                    // newLink.append("</blockquote>");
+                    newLink.append(myUrl);
                     newButton = $("<input type='button' value='Delete' class='delete'> <br> <br>");
                     newButton.attr("linkid", linkObject._id);
                     newLink.append(newButton);
