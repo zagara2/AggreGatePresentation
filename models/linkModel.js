@@ -11,6 +11,7 @@ var linkSchema = new Schema({
     type: String,
     trim: true
   },
+  description: {type: String},
   boardID: {type: Schema.Types.ObjectId}
 });
 
