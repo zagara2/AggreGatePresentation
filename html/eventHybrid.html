@@ -172,6 +172,23 @@ blockquote {
 .modal-dialog {
     font-family: arial;
 }
+
+.articleTitle, .articleDesc {
+    /*text-align:center;*/
+    padding-left:20px;
+}
+
+#stArticles {
+    padding-left:25px;
+}
+
+.articleComp1 .delete {
+    margin-left:20px;
+}
+
+
+
+
 </style>
 
 <body>
@@ -481,7 +498,7 @@ $(document).ready(function() {
 
                 if (linkObject.rating && linkObject.description) {
                     var rating = linkObject.rating.toString();
-                    $(newLink).attr('title', "Quality Rating: " + rating + "/10; Description: '" +linkObject.description+"'");
+                    $(newLink).attr('title', "Quality Rating: " + rating + "/10; " +linkObject.description);
                 }
                 else if (linkObject.rating && !linkObject.description) {
                     var rating = linkObject.rating.toString();
@@ -491,7 +508,7 @@ $(document).ready(function() {
 
                 else if (!linkObject.rating && linkObject.description) {
 
-                    $(newLink).attr('title', "Description: '" +linkObject.description+"'");
+                    $(newLink).attr('title', linkObject.description);
 
                 }
 
