@@ -154,6 +154,13 @@ blockquote {
 .shareLink {
     font-weight: bold;
 }
+#mandatory {
+    font-family: arial;
+}
+
+.modal-dialog {
+    font-family: arial;
+}
 </style>
 
 <body>
@@ -184,7 +191,7 @@ blockquote {
                                 <form action="/linkSubmit" method="post">
                                     <p>Title:</p>
                                     <input type="text" id="title" placeholder="">
-                                    <p>URL <strong>(must use embed link for videos, Tweets, or podcasts):</strong></p>
+                                    <p>***URL <strong>(must use embed link for videos, Tweets, or podcasts):</strong></p>
                                     <input type="url" id="url" placeholder="">
                                     <!-- <p>Link Source: Twitter, Youtube, Soundcloud, or Other?:</p>
                                     <input type="text" id="linkType" placeholder=""> -->
@@ -195,6 +202,9 @@ blockquote {
                                     <input type="textarea" id="description" placeholder="">
                                     <br>
                                     <br>
+                                    
+                                    <p id = "mandatory"><strong>Fields marked with *** are mandatory.</strong></p>
+                                    
                                     <input type="button" value="Submit" id="submit">
                             </div>
                         </div>
@@ -452,13 +462,40 @@ $(document).ready(function() {
                 console.log(linkObject);
                 // var newBoard = document.createElement("div");
                 var newLink = $("<div id = 'chunk'>");
+                myUrl = linkObject.url;
+
+                if (myUrl.includes("twitter.com") || myUrl.includes("youtube.com") || myUrl.includes("vid.me") || myUrl.includes("soundcloud.com")) { 
+
+
+
+                if (linkObject.rating && linkObject.description) {
+                    var rating = linkObject.rating.toString();
+                    $(newLink).attr('title', "Quality Rating: " + rating + "/10; Description: '" +linkObject.description+"'");
+                }
+                else if (linkObject.rating && !linkObject.description) {
+                    var rating = linkObject.rating.toString();
+                    $(newLink).attr('title', "Quality Rating: " + rating + "/10");
+
+                }
+
+                else if (!linkObject.rating && linkObject.description) {
+
+                    $(newLink).attr('title', "Description: '" +linkObject.description+"'");
+
+                }
+
+            }
+
+            else {
 
                 if (linkObject.rating) {
                     var rating = linkObject.rating.toString();
-                    $(newLink).attr('title', "Quality Rating: " + rating + "/10 ");
+                    $(newLink).attr('title', "Quality Rating: " + rating+"/10");
                 }
+
+            }
                 // var a = document.createElement("a");
-                myUrl = linkObject.url;
+                // myUrl = linkObject.url;
 
                 if (!linkObject.url.startsWith("http") && !linkObject.url.startsWith("<")) {
 

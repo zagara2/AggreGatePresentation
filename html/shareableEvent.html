@@ -186,13 +186,15 @@ blockquote {
                                 <form action="/linkSubmit" method="post">
                                     <p>Title:</p>
                                     <input type="text" id="title" placeholder="">
-                                    <p>URL <strong>(must use embed link for videos, Tweets, or podcasts):</strong></p>
+                                    <p>*URL <strong>(must use embed link for videos, Tweets, or podcasts):</strong></p>
                                     <input type="url" id="url" placeholder="">
                                     <!-- <p>Link Source: Twitter, Youtube, Soundcloud, or Other?:</p>
                                     <input type="text" id="linkType" placeholder=""> -->
                                     <p>Quality Rating (out of 10):</p>
                                     <input type="number" id="rating" placeholder="">
                                     <br>
+                                    <br>
+                                    <p>Fields marked with * are mandatory.</p>
                                     <br>
                                     <input type="button" value="Submit" id="submit">
                             </div>
@@ -429,16 +431,16 @@ $(document).ready(function() {
 
             $(".tweetComp").empty();
             $(".tweetComp").append("<div class = 'placeholderstufftwitter'> <img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400' height = 'auto' alt = 'twitter placeholder'><br><img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400'  alt = 'twitter placeholder'> <br><img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400'  alt = 'twitter placeholder'> <br><img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400'  alt = 'twitter placeholder'><br><img src = 'http://pbs.twimg.com/ext_tw_video_thumb/560070131976392705/pu/img/TcG_ep5t-iqdLV5R.jpg' width = '400' height = 'auto' alt = 'twitter placeholder'><br> </div>");
-            $(".tweetComp").prepend("<div class = 'placeholderWords'><p>Nothing yet!</p>")
+            $(".tweetComp").prepend("<div class = 'placeholderWords' id = 'pwordsTweet'><p>Nothing yet!</p>")
             $(".podComp").empty();
             $(".podComp").append("<div class = 'placeholderstuffpodcast'> <img src = 'https://d3ahqwdvfhobke.cloudfront.net/static/img/placeholders/soundcloud-placeholder-525x262.jpg' width='230%' height = '250' alt = 'podcast placeholder' </div>");
-            $(".podComp").prepend("<div class = 'placeholderWords'><p>Nothing yet!</p>")
+            $(".podComp").prepend("<div class = 'placeholderWords' id = 'pwordsPodcast'><p>Nothing yet!</p>")
             $(".videoComp").empty();
             $(".videoComp").append("<div class = 'placeholderstuffvideo'> <img src = 'https://i.vimeocdn.com/video/499134794_1280x720.jpg' width='560' height='315' alt = 'video placeholder' </div>");
-            $(".videoComp").prepend("<div class = 'placeholderWords'><p>Nothing yet!</p>")
+            $(".videoComp").prepend("<div class = 'placeholderWords' id = 'pwordsVideo'><p>Nothing yet!</p>")
             $(".articleComp1").empty();
             $(".articleComp1").append("<div class = 'placeholderstuffarticle'> <img src = 'http://crd.org.eg/wp-content/uploads/2016/02/ph-news.png' width = '100%' height = '320' alt = 'article placeholder' </div>");
-            $(".articleComp1").prepend("<div class = 'placeholderWords'><p>Nothing yet!</p>")
+            $(".articleComp1").prepend("<div class = 'placeholderWords' id = 'pwordsArticle'><p>Nothing yet!</p>")
 
 
         if (links !== 'undefined') {
@@ -451,9 +453,43 @@ $(document).ready(function() {
                 console.log(linkObject);
                 // var newBoard = document.createElement("div");
                 var newLink = $("<div>");
-                var rating = linkObject.rating.toString();
+                // var rating = linkObject.rating.toString();
                 // var a = document.createElement("a");
                 myUrl = linkObject.url;
+                // myUrl = linkObject.url;
+
+                if (myUrl.includes("twitter.com") || myUrl.includes("youtube.com") || myUrl.includes("vid.me") || myUrl.includes("soundcloud.com")) { 
+
+
+
+                if (linkObject.rating && linkObject.description) {
+                    var rating = linkObject.rating.toString();
+                    $(newLink).attr('title', "Quality Rating: " + rating + "/10; Description: '" +linkObject.description+"'");
+                }
+                else if (linkObject.rating && !linkObject.description) {
+                    var rating = linkObject.rating.toString();
+                    $(newLink).attr('title', "Quality Rating: " + rating + "/10");
+
+                }
+
+                else if (!linkObject.rating && linkObject.description) {
+
+                    $(newLink).attr('title', "Description: '" +linkObject.description+"'");
+
+                }
+
+            }
+
+            else {
+
+                if (linkObject.rating) {
+                    var rating = linkObject.rating.toString();
+                    $(newLink).attr('title', "Quality Rating: " + rating+"/10");
+                }
+
+            }
+
+
 
                 if (!linkObject.url.startsWith("http") && !linkObject.url.startsWith("<") ) {
 
@@ -480,6 +516,7 @@ $(document).ready(function() {
 
                 if (myUrl.includes("twitter.com")) {
                     $('.placeholderstufftwitter').hide();
+                    $('#pwordsTweet').hide();
                     // newLink.append("<blockquote class='twitter-tweet' data-lang='en'> <p lang='en' dir='ltr'>");
                     // newLink.append(textnode + "</p>");
                     // newLink.append("</blockquote>");
@@ -491,7 +528,8 @@ $(document).ready(function() {
                     $(".tweetComp").prepend(newLink);
 
                 } else if (myUrl.includes("soundcloud.com")) {
-                    // $('.placeholderstuffpodcast').hide();
+                    $('.placeholderstuffpodcast').hide();
+                    $('#pwordsPodcast').hide();
                     // newLink.append(textnode);
                     // <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/191477804&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
                     myUrl2 = "<iframe width='230%' " + myUrl.slice(20);
@@ -502,6 +540,7 @@ $(document).ready(function() {
                     $(".podComp").prepend(newLink);
                 } else if (myUrl.includes("youtube.com") || myUrl.includes("vid.me")) {
                     $('.placeholderstuffvideo').hide();
+                    $('#pwordsVideo').hide();
                     // <h2><div class="vidTitle">Your Video Here:</div> </h2>
                     newLink.append("<h2><div class='vidTitle'>" + linkObject.title + "</div> </h2>")
                     newLink.append(myUrl);
@@ -512,6 +551,7 @@ $(document).ready(function() {
                     $(".videoComp").prepend(newLink);
                 } else {
                     $('.placeholderstuffarticle').hide();
+                    $('#pwordsArticle').hide();
                     // <div class="article">
                     //                                     <h2>
                     //                                 <div class="articleTitle"><a style="color:#990000" href="http://www.newyorker.com/news/john-cassidy/trumps-health-care-threats-are-nothing-but-spite-and-fury" target=" ">Trumps Health Care Threats Are Nothing But Spite And Fury</a>
@@ -526,7 +566,9 @@ $(document).ready(function() {
 
 
                     newLink.append("<div class='article'><h2><div class='articleTitle'><a style='color:#990000' href='" + myUrl + "' target='_blank'>" + linkObject.title + "</a></div></h2>");
-                    newLink.append("<div class='articleDesc'><p> Rating: "+linkObject.rating.toString()+"</p></div><div class='clear'></div></div>");
+                    if (linkObject.description) {
+                    newLink.append("<div class='articleDesc'><p>"+linkObject.description+"</p></div><div class='clear'></div></div>");
+                }
                     // newButton = $("<input type='button' value='Delete' class='delete'> <br> <br>");
                     // newButton.attr("linkid", linkObject._id);
                     // newLink.append(newButton);
