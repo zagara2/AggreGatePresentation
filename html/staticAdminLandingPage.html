@@ -141,7 +141,7 @@ form {
 
 .login p {
     font-family: "Reenie Beanie", arial, sans-serif;
-    font-size: 180%;
+    font-size: 20;
 }
 
 div.register {
@@ -628,7 +628,13 @@ $(function() {
                 // var ptagGrabber = "p[id='"+eventnameid+"']";
                 // console.log(ptagGrabber);
                 // $(ptagGrabber).empty();
+                if (board.description) {  
                 $(eventnameid).html(textnode + "<br>" + "<a class='eventDesc'>" + textnode3 + "</a>");
+            }
+
+            else {
+                $(eventnameid).html(textnode + "<br>" + "<a class='eventDesc'>" + board.boardname + "</a>");
+            }
 
 
 
