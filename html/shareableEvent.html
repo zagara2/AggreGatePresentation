@@ -14,6 +14,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+
+
 </head>
 <style>
 body {
@@ -182,55 +185,31 @@ blockquote {
     /*text-align:center;*/
     padding-left:20px;
 }
+
+#chatlink {
+    margin-top:100px;
+    width:400px;
+    float:left;
+}
 </style>
 
 <body>
     <div class="metaContainer" id="app">
         <div class="container">
+
             <div class="col-lg-12">
                 <br>
                 <br>
-                <h1><div class="col-lg-offset-1 col-lg-1 homeLink"><a style="color:#2C3E50"href="/"><img id = "logo" src = "/assets/images/agglogotransparent.png" alt = "Home"></a></div><div class="col-lg-8 eventTitle"> </div><div class="col-lg-1 shareLink">SHARE: </div> </h1>
+                <h1><div class="col-lg-offset-1 col-lg-1 homeLink"><a style="color:#2C3E50"href="/"><img id = "logo" src = "/assets/images/agglogotransparent.png" alt = "Home"></a>  </div><div class="col-lg-8 eventTitle"> </div><div class="col-lg-1 shareLink">SHARE: </div> </h1>
+                
                 <br>
                 <br>
                 <div id = "sharelink"></div>
                 <div class="col-lg-12 null">NULL</div>
             </div>
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-info btn-lg modalButton" data-toggle="modal" data-target="#myModal">Add Link</button>
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Enter data here to add a new link to this event.</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div id="newDataItemForm">
-                                <form action="/linkSubmit" method="post">
-                                    <p>Title:</p>
-                                    <input type="text" id="title" placeholder="">
-                                    <p>*URL <strong>(must use embed link for videos, Tweets, or podcasts):</strong></p>
-                                    <input type="url" id="url" placeholder="">
-                                    <!-- <p>Link Source: Twitter, Youtube, Soundcloud, or Other?:</p>
-                                    <input type="text" id="linkType" placeholder=""> -->
-                                    <p>Quality Rating (out of 10):</p>
-                                    <input type="number" id="rating" placeholder="">
-                                    <br>
-                                    <br>
-                                    <p>Fields marked with * are mandatory.</p>
-                                    <br>
-                                    <input type="button" value="Submit" id="submit">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <button type="button" class="btn btn-info btn-lg modalButton" id = "chatbtn">Real time Chat</button>
+           
             <div class="row">
                 <div class="col-lg-7">
                     <div class="panel panel-default col-lg-12">
@@ -238,7 +217,7 @@ blockquote {
                         <div class = "sectionTitle" id = "stVideos">VIDEOS:</div>
                             <div class="videoComp">
                             
-                                <h2><div class="vidTitle">Styx!!</div> </h2>
+                                <h2><div class="vidTitle">Styx</div> </h2>
                                 <iframe src="https://vid.me/e/twRI0?stats=1" width="560" height="315" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen scrolling="no"></iframe>
                             </div>
                             <div class = "sectionTitle" id = "stPodcasts">PODCASTS:</div>
@@ -371,6 +350,23 @@ let j = k * .85;
 $(".articleComp").attr("style", "height:" + r + "px");
 $(".tweetComp").attr("style", "height:" + j + "px");
 $(".metaContainer").attr("style", "height:" + k + "px");
+
+// $("#chatbtn").click(function() {
+//     console.log("button clicked");
+//     var pagelink = window.location.href;
+//     var boardcurrent = pagelink.split("/");
+//     var myID = boardcurrent[boardcurrent.length-1];
+//     window.location.href = "/socketchat/" + myID;
+                
+//             })
+
+ var pagelink = window.location.href;
+    var boardcurrent = pagelink.split("/");
+    var myID = boardcurrent[boardcurrent.length-1];
+$("#chatbtn").attr("onclick", "window.open('/socketchat/"+myID+"', '_blank')");
+
+
+
 
 //first function: handles form submission
 $(document).ready(function() {
@@ -652,13 +648,14 @@ $(document).ready(function() {
 
     // });
 
-$(".modalButton").hide();
+// $(".modalButton").hide();
 $(".delete").hide();
 var pagelink = window.location.href;
 // $("#sharelink").html("<p>"+pagelink+"</p>");
 $("#sharelink").html("<a href = '"+ pagelink+"' target='_blank'>"+pagelink+ "</a>");
 
 });
+
 </script>
 
 </html>

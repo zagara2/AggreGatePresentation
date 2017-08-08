@@ -6,6 +6,35 @@ var express = require('express');
 var session = require('express-session');
 var app = express();
 
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+
+// io.on('connection', function(socket){
+//   console.log('a user connected');
+//   socket.on('disconnect', function(){
+//     console.log('user disconnected');
+//   });
+// });
+
+// io.on('connection', function(socket){
+//     console.log('a user connected');
+//   socket.on('chat message', function(msg){
+//     console.log('message: ' + msg);
+//   });
+// });
+
+
+// io.on('connection', function(socket){
+//     console.log('a user connected');
+//   socket.on('chat message', function(msg){
+//     console.log('message: ' + msg);
+//     io.emit('chat message', msg);
+//   });
+// });
+
+
+
 //from express session tutorial
 // app.set('public', __dirname + '/public');
 //app.engine('html', require('ejs').renderFile);
@@ -570,18 +599,47 @@ app.get("/3YS", function(req, res) {
     }
 });
 
+io.sockets.on('connection', function(socket) {
+    console.log('a user connected');
+
+    socket.on('room', function(room) {
+        console.log('a user has joined: ' + room);
+        socket.join(room);
+        socket.room = room;
+    });
+
+    socket.on("setUsername", function(username) {
+        console.log("username set to: " + username);
+        socket.username = username;
+    })
+
+    socket.on('chat message', function(msg) {
+        console.log("a user sent message: " + msg + " to room " + socket.room);
+        io.sockets.to(socket.room).emit("chat message", {username: socket.username,
+            msg: msg}
+            );
+    });
+}); 
+
+//socket chat route
+app.get('/socketchat/:id', function(req, res){
+    var room = req.params.id;
+
+    res.sendFile(__dirname + '/html/socketchat.html');
+});
+
 
 // Any non API GET routes will be directed to our React App and handled by React Router
 //this goes last since routes are evaluated in order, and this is a catch all last resort route!
 app.get("*", function(req, res) {
-    console.log("last resort");
+    // console.log("last resort");
     sess = req.session;
     if (sess.email) {
-        console.log("session found. path is *");
+        // console.log("session found. path is *");
         // res.sendFile(__dirname + '/html/adminLanding.html');
         res.redirect("/admin");
     } else {
-        console.log("session not found. path is *");
+        // console.log("session not found. path is *");
 
         res.sendFile(__dirname + "/html/index.html");
     }
@@ -591,7 +649,7 @@ app.get("*", function(req, res) {
 
 
 var PORT = process.env.PORT || 3000;
-app.listen(PORT, function() {
+http.listen(PORT, function() {
 
     console.log('http://localhost:' + PORT);
 });
