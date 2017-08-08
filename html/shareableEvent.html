@@ -109,8 +109,10 @@ blockquote {
 
 .sectionTitle {
     font-size: 40px;
-    padding:20px;
+    padding-top:25px;
     font-weight:bold;
+    text-align:center;
+
 }
 
 .tweetComp{
@@ -122,6 +124,7 @@ blockquote {
     margin-left:80%;
     width:200px;
     word-wrap: break-word;
+
 
 }
 
@@ -155,6 +158,29 @@ blockquote {
     padding:2px;
     text-align:center;
     /*font-weight:bold;*/
+    /*width:200px;*/
+}
+
+#pwordsTweet {
+    text-align: center;
+}
+
+#stTweets {
+    text-align: center;
+}
+
+#stPodcasts, #stVideos {
+    width:600px;
+}
+
+#pwordsPodcast, #pwordsVideo {
+    
+    width:600px;
+}
+
+.articleTitle, .articleDesc {
+    /*text-align:center;*/
+    padding-left:20px;
 }
 </style>
 
@@ -209,13 +235,13 @@ blockquote {
                 <div class="col-lg-7">
                     <div class="panel panel-default col-lg-12">
                         <div class="col-lg-6">
-                        <div class = "sectionTitle">VIDEOS:</div>
+                        <div class = "sectionTitle" id = "stVideos">VIDEOS:</div>
                             <div class="videoComp">
                             
                                 <h2><div class="vidTitle">Styx!!</div> </h2>
                                 <iframe src="https://vid.me/e/twRI0?stats=1" width="560" height="315" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen scrolling="no"></iframe>
                             </div>
-                            <div class = "sectionTitle">PODCASTS:</div>
+                            <div class = "sectionTitle" id = "stPodcasts">PODCASTS:</div>
                             <div class="podComp col-lg-12">
                                 <iframe width="230%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/333813967&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
                             </div>
@@ -298,7 +324,7 @@ blockquote {
                         </div>
                     </div>
                 </div>
-                <div class = "sectionTitle">TWITTER:</div>
+                <div class = "sectionTitle" id = "stTweets">TWITTER:</div>
                 <div class="tweetComp panel panel-default col-lg-5">
                     <blockquote class="twitter-tweet" data-lang="en">
                         <p lang="en" dir="ltr">I&#39;m fine with healthcare being retarded and expensive, but come on now, don&#39;t make me pay for an ambulance. That&#39;s some bullshit.</p>&mdash; Chris Ray Gun (@ChrisRGun) <a href="https://twitter.com/ChrisRGun/status/841069782086557696">March 12, 2017</a></blockquote>
@@ -629,7 +655,8 @@ $(document).ready(function() {
 $(".modalButton").hide();
 $(".delete").hide();
 var pagelink = window.location.href;
-$("#sharelink").html("<p>"+pagelink+"</p>");
+// $("#sharelink").html("<p>"+pagelink+"</p>");
+$("#sharelink").html("<a href = '"+ pagelink+"' target='_blank'>"+pagelink+ "</a>");
 
 });
 </script>
