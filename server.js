@@ -416,6 +416,7 @@ app.post("/submitLink", function(req, res) {
             addedBy: sess.email,
             url: req.body.url,
             linkType: req.body.linkType,
+            description:req.body.description,
             boardID: req.body.boardID
 
         };
