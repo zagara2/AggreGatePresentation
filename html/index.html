@@ -222,25 +222,47 @@ a:active {
     margin-left: 2em;
     margin-top: 1em;
 }
-img {
+#polaroid img {
   transition: 3s box-shadow ease-in;
   box-shadow: 0 0 200px 200px rgba(29, 25, 4, 1) inset, 
     0 0 3px 6px rgba(0, 0, 0, 0.07);
 }
-img:hover {
+#polaroid img:hover {
   box-shadow: 0 0 100px 0 rgba(29, 25, 4, 0.8) inset,
     0 0 3px 6px rgba(0, 0, 0, 0.07);
   filter: sepia(20%);
   -webkit-filter: brightness(7);
   filter: brightness(7);
 }
-}
+
 ::-webkit-scrollbar { 
     display: none; 
 }
+
+#logo {
+    
+    position:absolute;
+    top:30px;
+    left:-30px;
+    width:380px;
+    height:auto;
+
+
+}
+
+
+
 </style>
 
 <body>
+
+<div class="logo">
+  
+        <img id = "logo" src = "/assets/images/agglogotransparent.png" alt = "AggrGate">
+   
+</div>
+
+
     <div class="polaroids">
         <div class="polaroid ">
             <img src="http://lorempixel.com/200/200/nature/1">
