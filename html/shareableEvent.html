@@ -65,7 +65,8 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: #990000;
-    font-weight:bold;
+    font-weight:bolder;
+    letter-spacing:7px;
 }
 
 .vidTitle {
@@ -87,8 +88,20 @@ body {
 }
 
 .articleComp1, .articleComp,
-.tweetComp {
+.tweetComp, .videoComp, .podComp {
     overflow-y: scroll;
+}
+
+.videoComp {
+    width:600px;
+    height:550px;
+    padding-left:25px;
+
+}
+
+.podComp {
+    width:600px;
+    height:210px;
 }
 
 blockquote {
@@ -558,7 +571,7 @@ $(document).ready(function() {
                     $('#pwordsPodcast').hide();
                     // newLink.append(textnode);
                     // <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/191477804&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-                    myUrl2 = "<iframe width='230%' " + myUrl.slice(20);
+                    myUrl2 = "<iframe width='100%' " + myUrl.slice(20);
                     newLink.append(myUrl2);
                     // newButton = $("<input type='button' value='Delete' class='delete'> <br> <br>");
                     // newButton.attr("linkid", linkObject._id);
