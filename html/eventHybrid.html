@@ -629,7 +629,7 @@ $(document).ready(function() {
 
     var pagelink = window.location.href;
     var linklasthalf = pagelink.split("/");
-    $("#sharelink").html("<p>https://aggrgate.herokuapp.com/eventPage/share/" + linklasthalf[linklasthalf.length - 1] + "</p>");
+    $("#sharelink").html("<a href = 'https://aggrgate.herokuapp.com/eventPage/share/" + linklasthalf[linklasthalf.length - 1]+ "' target='_blank'> https://aggrgate.herokuapp.com/eventPage/share/" + linklasthalf[linklasthalf.length - 1]+ "</a>");
 
 
     // });
