@@ -14,6 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 </head>
 <style>
 body {
@@ -67,6 +68,8 @@ body {
     color: #990000;
     font-weight: bolder;
     letter-spacing:7px;
+    padding-top:6px;
+
 }
 
 .vidTitle {
@@ -400,6 +403,9 @@ let j = k * .85;
 $(".articleComp").attr("style", "height:" + r + "px");
 $(".tweetComp").attr("style", "height:" + j + "px");
 $(".metaContainer").attr("style", "height:" + k + "px");
+
+$('.shareLink').attr('title', 'When sharing with friends, we recommend using bit.ly to shorten links to boards so that they can fit inside of character-restricted media like Tweets.');
+$('#sharelink').attr('title', 'When sharing with friends, we recommend using bit.ly to shorten links to boards so that they can fit inside of character-restricted media like Tweets.');
 
 //first function: handles form submission
 $(document).ready(function() {

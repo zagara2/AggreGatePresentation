@@ -26,10 +26,10 @@
     var socket = io();
 
     var boardId = window.location.pathname.split("/").slice(-1);
-    //socket.on("connection", function() {
+    socket.on("connected", function() {
       socket.emit('room', boardId);
       socket.emit('setUsername', prompt("What is your username?"));
-    //});
+    });
     
     $('form').submit(function(){
       socket.emit('chat message', $('#m').val());

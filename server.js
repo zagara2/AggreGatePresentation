@@ -600,7 +600,8 @@ app.get("/3YS", function(req, res) {
 });
 
 io.sockets.on('connection', function(socket) {
-    console.log('a user connected');
+    // console.log('a user connected');
+    io.sockets.emit("connected");
 
     socket.on('room', function(room) {
         console.log('a user has joined: ' + room);
