@@ -1,6 +1,6 @@
 # AggreGatePresentation
 
-#What is AggrGate?
+##What is AggrGate?
 
 **AggrGate is the first unlimited-source, group-oriented, shareable news aggregator.**
 
@@ -15,7 +15,7 @@ AggrGate is currently deployed at https://aggrgate.herokuapp.com/ . I recommend 
 While I am satisfied with how the site is running currently, there are still many features I wish to add to it, which you can find detailed in the Future Plans section. Updates are coming slowly but steadily, as I am currently managing the site on my own while working on several other projects. 
 
 
-#Technologies Used
+##Technologies Used
 
 *MongoDB 
 *Mongoose
@@ -28,9 +28,9 @@ While I am satisfied with how the site is running currently, there are still man
 *Socket.io
 *user authentication
 
-#Browser and Screen Compatibility
+##Browser and Screen Compatibility
 
-##Browser Tests
+###Browser Tests
 
 The site has currently been tested on Chrome, and fully works on Chrome.
 
@@ -38,7 +38,7 @@ Plans to test on Firefox, Internet Explorer, and Safari are upcoming.
 
 The site is not currently optimized for mobile, though I have plans to put in media queries that will allow mobile use.
 
-##Screen Compatibility Tests
+###Screen Compatibility Tests
 
 When loaded properly, the page should look like this:
 
@@ -59,15 +59,15 @@ The site looks basically fine on a 1680x1050 large desktop, but has negligible l
 
 The site’s layout currently needs work on a 1024x768 iPad, a 768x1280 Windows Phone, a 640x960 iPhone, a 480x800 Windows Phone, and a 320x480 Android phone. The logged-in/admin homepage looks okay (though not optimal) on these devices, but the other pages are in need of reorganization on these screen sizes. 
 
-#The Site in Action
+##The Site in Action
 
 A tutorial video walking you through the site’s basic functionality.
 
 `<iframe width="560" height="315" src="https://www.youtube.com/embed/0ZeBOQALJMY" frameborder="0" allowfullscreen></iframe>`
 
-#Future Plans for Improvement
+##Future Plans for Improvement
 
-##Fairly crucial:
+###Fairly crucial:
 
 *Add group functionality so that if the owner of a board so chooses, the board can be edited by a group of allowed users. Display the boards you can edit (but do not own) in a link on your personalized homepage.
 *Add a “get history” link for each individual board’s real time chat. Less important if I also add comments.
@@ -79,7 +79,7 @@ A tutorial video walking you through the site’s basic functionality.
 *Maybe overhaul and use passport.js for the auth. 
 *Add footer.
 
-##Fancy/non-important:
+###Fancy/non-important:
 
 *Get the drag and drop functionality to work. Like where you drag and drop links in and it automatically extracts the title instead of using a form. But also the functionality where you can drag and drop the order of the articles. Except I don’t know how well that last one will mesh with the scrolling.
 *URL shortening algorithm for sharing. For now we just have hovertext that says, “When sharing with friends, we recommend using bit.ly to shorten links to boards so that they can fit inside of character-restricted media like Tweets.” 
@@ -88,6 +88,6 @@ A tutorial video walking you through the site’s basic functionality.
 *Making an average article rating (i.e. multiple group members for a board can rate an article, and the average of all ratings is displayed as the rating.)
 *“Added by: (username)” as hovertext for data on boards when group functionality is added.
 
-#Current Bugs
+##Current Bugs
 
 You can currently go back to the logged-out homepage if you click the back button while on the logged-in homepage, even while logged in. However, I have done some research on StackOverflow about how to fix this, and it seems to be a fairly simple fix (either done with cache-clearing or forcing the page to reload). Will fix soon.
