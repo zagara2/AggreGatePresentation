@@ -90,4 +90,4 @@ https://youtu.be/0ZeBOQALJMY
 
 ## Current Bugs
 
-You can currently go back to the logged-out homepage if you click the back button while on the logged-in homepage, even while logged in. However, I have done some research on StackOverflow about how to fix this, and it seems to be a fairly simple fix (either done with cache-clearing or forcing the page to reload). Will fix soon.
+Despite the hard-coded redirect, you can currently go back to the logged-out-formatted homepage if you click the back button while on the logged-in homepage, although doing so will not actually log you out. Ideally it would be impossible to access the logged-out-formatted homepage in any way while logged in. However, I have done some research on StackOverflow about how to fix this, and it seems to be a fairly simple fix (either done with cache-clearing or forcing the page to reload). Will fix soon.
