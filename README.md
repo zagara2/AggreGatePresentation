@@ -1,4 +1,4 @@
-# AggreGatePresentation
+# AggrGatePresentation
 
 ## What is AggrGate?
 
