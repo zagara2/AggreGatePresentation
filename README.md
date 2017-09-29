@@ -17,16 +17,16 @@ While I am satisfied with how the site is running currently, there are still man
 
 ## Technologies Used
 
-*MongoDB 
-*Mongoose
-*Javascript
-*JQuery
-*HTML5
-*CSS3
-*Express
-*Node.js
-*Socket.io
-*user authentication
+* MongoDB 
+* Mongoose
+* Javascript
+* JQuery
+* HTML5
+* CSS3
+* Express
+* Node.js
+* Socket.io
+* user authentication (session cookies)
 
 ## Browser and Screen Compatibility
 
@@ -43,13 +43,13 @@ The site is not currently optimized for mobile, though I have plans to put in me
 When loaded properly, the page should look like this:
 
 ![Logged-out Homepage](/public/assets/images/loggedouthomepage.JPG)
-Logged-out homepage.
+**Logged-out homepage.**
 
 ![Logged-in Homepage](/public/assets/images/loggedinhomepage.JPG)
-Logged-in homepage.
+**Logged-in homepage.**
 
 ![Individual Board](/public/assets/images/indboardbig.JPG)
-Individual board (top half; the rest of the page is visible if one keeps scrolling.)
+**Individual board (top half; the rest of the page is visible if one keeps scrolling.)**
 
 The site is best viewed on a 1280x1024 small desktop. 
 
@@ -63,30 +63,30 @@ The site’s layout currently needs work on a 1024x768 iPad, a 768x1280 Windows 
 
 A tutorial video walking you through the site’s basic functionality.
 
-`<iframe width="560" height="315" src="https://www.youtube.com/embed/0ZeBOQALJMY" frameborder="0" allowfullscreen></iframe>`
+https://youtu.be/0ZeBOQALJMY
 
 ## Future Plans for Improvement
 
 ### Fairly crucial:
 
-*Add group functionality so that if the owner of a board so chooses, the board can be edited by a group of allowed users. Display the boards you can edit (but do not own) in a link on your personalized homepage.
-*Add a “get history” link for each individual board’s real time chat. Less important if I also add comments.
-*The site is in desperate need of media queries for abnormal screen sizes. Mostly mobile.
-*Use APIs where possible to solve the issue of having to use embed links instead of plain URLs for embeddable media. APIs exist for this on Twitter, Soundcloud, and Youtube.
-*Descriptions and titles for articles need to be updatable. 
-*Should the real time chat be linked on the editable versions of event pages too? 
-*Add buttons to each data source on the page that show comments from viewers. Anyone should be able to leave a comment.
-*Maybe overhaul and use passport.js for the auth. 
-*Add footer.
+* Add group functionality so that if the owner of a board so chooses, the board can be edited by a group of allowed users. Display the boards you can edit (but do not own) in a link on your personalized homepage.
+* Add a “get history” link for each individual board’s real time chat. Less important if I also add comments.
+* The site is in desperate need of media queries for abnormal screen sizes. Mostly mobile.
+* Use APIs where possible to solve the issue of having to use embed links instead of plain URLs for embeddable media. APIs exist for this on Twitter, Soundcloud, and Youtube.
+* Descriptions and titles for articles need to be updatable. 
+* Should the real time chat be linked on the editable versions of event pages too? 
+* Add buttons to each data source on the page that show comments from viewers. Anyone should be able to leave a comment.
+* Maybe overhaul and use passport.js for the auth. 
+* Add footer.
 
 ### Fancy/non-important:
 
-*Get the drag and drop functionality to work. Like where you drag and drop links in and it automatically extracts the title instead of using a form. But also the functionality where you can drag and drop the order of the articles. Except I don’t know how well that last one will mesh with the scrolling.
-*URL shortening algorithm for sharing. For now we just have hovertext that says, “When sharing with friends, we recommend using bit.ly to shorten links to boards so that they can fit inside of character-restricted media like Tweets.” 
-*Make it so that when you click the logo on the logged-out homepage, it takes you to some page that has a detailed explanation of the site and a tutorial video. Maybe even a “future plans” section.
-*Scraping button (to check for any changes in a given news article; version comparison). Although, that can wait. For a long while.
-*Making an average article rating (i.e. multiple group members for a board can rate an article, and the average of all ratings is displayed as the rating.)
-*“Added by: (username)” as hovertext for data on boards when group functionality is added.
+* Get the drag and drop functionality to work. Like where you drag and drop links in and it automatically extracts the title instead of using a form. But also the functionality where you can drag and drop the order of the articles. Except I don’t know how well that last one will mesh with the scrolling.
+* URL shortening algorithm for sharing. For now we just have hovertext that says, “When sharing with friends, we recommend using bit.ly to shorten links to boards so that they can fit inside of character-restricted media like Tweets.” 
+* Make it so that when you click the logo on the logged-out homepage, it takes you to some page that has a detailed explanation of the site and a tutorial video. Maybe even a “future plans” section.
+* Scraping button (to check for any changes in a given news article; version comparison). Although, that can wait. For a long while.
+* Making an average article rating (i.e. multiple group members for a board can rate an article, and the average of all ratings is displayed as the rating.)
+* “Added by: (username)” as hovertext for data on boards when group functionality is added.
 
 ## Current Bugs
 
