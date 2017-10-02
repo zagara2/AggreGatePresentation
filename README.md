@@ -4,11 +4,11 @@
 
 **AggrGate is the first unlimited-source, group-oriented, shareable news aggregator.**
 
-In the current political climate, news comes at us fast. It can feel as though we are being bombarded with stories from a myriad of sources, and keeping up with all of them can be overwhelming for even the most knowledge-hungry of people. Moreover, different sources present us with different versions of news events. For those who want to “get the big picture” on a given event, comparing and contrasting media relevant to that particular topic is essential to avoiding a fragmented understanding. 
+In the current political climate, news comes at us fast. It can feel as though we are being bombarded with stories from a myriad of sources, and keeping up with all of them can be overwhelming for even the most knowledge-hungry of people. Moreover, different sources present us with different versions of news events. For those who want to “get the big picture” on a given event, comparing and contrasting relevant media is essential to avoiding a fragmented understanding. 
 
 News aggregators can be a major help in processing media. *But as I looked through existing aggregators, it felt like many things were missing.* Existing aggregators organized articles by site, or by general genre of news, rather than being optimized to organize news by specific event. While some allowed for articles to be saved to a user’s profile, users could not group saved articles into categories. What’s more, they only culled articles from a limited list of sites. Few existing aggregators were oriented towards sharing, and the ones that were only allowed for sharing of individual articles rather than collections of them. In general, existing aggregators seemed to be oriented towards the individual, despite the fact that group discussion is a fantastic way of furthering one’s worldly knowledge. 
 
-So, I and a friend who was similarly dissatisfied with the current news aggregator selection came up with the idea for AggrGate. For any newsworthy event of a user’s choosing, AggrGate allows the user to create a collection of relevant tweets/podcasts/videos/articles from any online sources they want, and store this collection in their account as a shareable and selectively editable “storyboard” of the event, complete with a real-time Socket.io chat room for each board. Each board has the ability to add editing privileges for multiple users, so that media curation for a particular news event can be a collaborative effort. Users can currently own up to 5 boards at a time per account, though the number they can edit is unlimited.   
+So, I and a friend who was similarly dissatisfied with the current news aggregator selection came up with the idea for AggrGate. For any newsworthy event of a user’s choosing, AggrGate allows the user to create a collection of relevant tweets/podcasts/videos/articles from any online sources they want, and store this collection in their account as a shareable and selectively editable “storyboard” of the event, complete with a real-time Socket.io chat room for each board. Each board has the ability to add editing privileges for multiple users, so that media curation for a particular news event can be a collaborative effort. Users can currently own up to 5 boards at a time per account, though they can edit as many different users' boards as they are given access to as a group member.   
 
 AggrGate is currently deployed at https://aggrgate.herokuapp.com/ . I recommend looking at the tutorial section of this markdown before exploring the site. 
 
@@ -55,13 +55,13 @@ The site is best viewed on a 1280x1024 small desktop.
 
 It also looks good on a 1366 x 768 Ultrabook, a 1280x800 Netbook and a 1366x768 tablet.
 
-The site looks basically fine on a 1680x1050 large desktop, but has negligible layout kinks at the top of the individual storyboard page which need to be resolved.
+The site looks basically fine on a 1680x1050 large desktop, but has negligible layout kinks at the top of the individual storyboard page which ought to be resolved.
 
 The site’s layout currently needs work on a 1024x768 iPad, a 768x1280 Windows Phone, a 640x960 iPhone, a 480x800 Windows Phone, and a 320x480 Android phone. The logged-in/admin homepage looks okay (though not optimal) on these devices, but the other pages are in need of reorganization on these screen sizes. 
 
 ## The Site in Action
 
-A tutorial video walking you through the site’s basic functionality.
+A tutorial video walking first timer users through the site’s basic functionality.
 
 https://youtu.be/0ZeBOQALJMY
 
