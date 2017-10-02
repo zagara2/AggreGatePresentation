@@ -27,6 +27,7 @@ While I am satisfied with how the site is running currently, there are still man
 * Node.js
 * Socket.io
 * user authentication (session cookies)
+* Bootstrap
 
 ## Browser and Screen Compatibility
 
